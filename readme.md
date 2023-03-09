@@ -14,3 +14,5 @@ Part 1: The Plan
       - I could also allow individual titles to be clicked on, focusing on each title individually, using another GET request.
     2) Allowing new titles to be added to the database using POST.
     3) Then, I should be able to edit the contents of an entry with PATCH, when a book is finished or if other information needs to be altered.
+
+  Once the fetch functionality is squared away and operating as intended, then I plan on adding a little more to snazz up the site.  Nothing's set in stone yet, but I'm thinking that the information concerning where I am in the process of reading the book would look better as an element that appears when the mouse hovers over the image of the book's cover.  Or something in that vein.  I'll have to consider it more once I get further along.
