@@ -16,3 +16,10 @@ Part 1: The Plan
     3) Then, I should be able to edit the contents of an entry with PATCH, when a book is finished or if other information needs to be altered.
 
   Once the fetch functionality is squared away and operating as intended, then I plan on adding a little more to snazz up the site.  Nothing's set in stone yet, but I'm thinking that the information concerning where I am in the process of reading the book would look better as an element that appears when the mouse hovers over the image of the book's cover.  Or something in that vein.  I'll have to consider it more once I get further along.
+
+Part 2: Building the Structure
+  So, the layout is more or less decided on.  I wasn't sure if I was going to do a sidebar with titles appearing along the left edge of the page or something fixed to the top, but in the end, I decided to actually place the book list at the bottom.  The header is up top, also fixed in place.  This will keep the important content central.
+
+  Something about setting it up this way it feels more like a book.  There are a few more elements of styling I'll add later on, but those will have to be appended to DOM elements.
+
+  While I know that styling isn't necessary for building a site or an app and that functionality is far more critical, having some semblance of a structure truly helps me flesh out how, where, and when events should happen once I get to the JavaScript.  Making code in a vaccuum can be less engaging without being able to see the work I'm doing affect an actual space.  The stark white background of an empty page looms and glares, soulless, abandoned.  This feels more like working with my hands than working in the purely abstract.
