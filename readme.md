@@ -1,4 +1,4 @@
-Regis's Reading List
+Regis's Book List
 
 Part 1: The Plan
 
@@ -32,6 +32,28 @@ Part 3: Populating the Database
 
   The reason for including one I've yet completed is so that there is something edit later on, when that functionality has been added.  This will also allow me to show the differences in content that appears on the page between a book I've finished reading and one I haven't.
 
-Part 4: Setting up the initial state with DOMContentLoaded
+Part 4: Setting up the page's initial state with DOMContentLoaded
 
-  S
+  Now that I've added some content to the database, it's time to figure out how the page will look as soon a visitor arrives.  This will utilize the most general fetch, one that pulls all the contents of the database and appends it to the screen.
+
+  In order to get each element of database to appear on screen without any input by the user, I employeed an event listener on the document itself with the first parameter set to "DOMContentLoaded."  This simply begins a function as soon the elements of an HTML file have loaded.  By doing so, any complex or convoluted functions that might need to occur in other areas of the page can be ignored and allow some action to take place.
+
+  In this case, it's a GET request of all the contents of the database.  The function looks like this: 
+
+  ```
+  function loadDatabase () {
+  fetch(`http://localhost:3000/novels`)
+  .then((resp) => resp.json())
+  .then((data) => {
+    data.forEach((e) => {
+      let tile = document.createElement("div");
+      tile.className = "booktile";
+      tile.innerHTML = `<img src=${e.coverImage}>
+      <div class="p-div"><p>${e.title}</p></div>`
+      bookList.appendChild(tile);
+    })
+  })
+}
+  ```
+
+  Now, instead of an empty row, the div along the bottom of the page includes the title and cover image of books in my list.  It's starting to feel alive.
