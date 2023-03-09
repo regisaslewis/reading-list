@@ -32,7 +32,10 @@ function loadDatabase () {
         tile.style.transform = "scale(1)";
         title.style.display = "none";
       })
-      tile.addEventListener("click", () => showBig(e))
+      tile.addEventListener("click", () => showBig(e));
+      fetch(`http://localhost:3000/novels/1`)
+        .then((resp) => resp.json())
+        .then((data) => buildInterior(data))
     })
   })
 }
@@ -100,7 +103,6 @@ function buildInterior(ele) {
       fetch(`http://localhost:3000/novels/${ele.id}`, editConfig)
         .then((resp) => resp.json())
         .then((data) => {
-          console.log(data);
           showBig(data);
         }) 
     })
