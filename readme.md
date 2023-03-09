@@ -57,3 +57,7 @@ Part 4: Setting up the page's initial state with DOMContentLoaded
   ```
 
   Now, by iterating through the contents of the database with .forEach(), instead of an empty row, the div along the bottom of the page includes the title and cover image of books in my list.  It's starting to feel alive.
+
+  Part 5: Populating each entry
+
+  
