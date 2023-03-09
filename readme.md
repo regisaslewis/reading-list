@@ -161,3 +161,17 @@ Part 4: Setting up the page's initial state with DOMContentLoaded
   By appending all those elements -- the two input fields and the button -- I could then add an event listener to the button that takes the values from the input fields, uses the PATCH method to update the db.json file for the individual entry, and then callback showBig() for the current entry with the updated info, all without refreshing the page.
 
   While it looks like a lot of code, it is honestly establishing the new elements that took up most of it, something that would be easily relegated to HTML if they weren't being created on the fly as the event listener is activated.  If you cancel out all those lines, there are simply two if...else statements, a PATCH request and a GET request in the buildInterior() function, so not all that crazy, really.
+
+Part 6: One little detail
+
+  I've been working on the functionality so much that I forgot about one little detail that needed to be address.  When the page is loaded, there just a big blank space for the "main stage" where the book details will go once they're chosen.
+
+  I think it will look much nicer, however, if there is some information on the page as soon as someone arrives at it.  I added another GET request for the first entry of the collection to fill in the big area at the center on arrival, as soon as the list is populated.  
+
+  At the end of loadDatabase(), I simply added another GET request that populates the center with the book listed as id: 1 in the db.json file.  It uses the same callback function as clicking on a title, so no new code had to be written beyond the fetch itself.  It looks like this:
+
+  ```
+  fetch(`http://localhost:3000/novels/1`)
+        .then((resp) => resp.json())
+        .then((data) => buildInterior(data))
+  ```
