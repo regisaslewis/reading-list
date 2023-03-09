@@ -125,7 +125,8 @@ a:hover {
 }
 
 .big-book {
-  height: 50%;
+  min-height: 650px;
+  max-height: 90%;
   max-width: 95%;
   box-shadow: -7px 7px 8px black;
   border-radius: 3px;

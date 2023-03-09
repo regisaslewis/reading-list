@@ -60,4 +60,4 @@ Part 4: Setting up the page's initial state with DOMContentLoaded
 
   Part 5: Populating each entry
 
-  
+  ADD THIS PART TOMORROW, GET SOME SLEEP, IDIOT

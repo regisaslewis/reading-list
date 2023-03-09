@@ -81,29 +81,28 @@ function buildInterior(ele) {
     editDiv.appendChild(ratingInput);
     editDiv.appendChild(commentInput);
     editDiv.appendChild(finishButton);
+
+    finishButton.addEventListener("click", () => {
+      let configObj = {
+        completed: true,
+        rating: Number(ratingInput.value),
+        comment: commentInput.value
+      };
+      let editConfig = {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(configObj)
+      };
+  
+      fetch(`http://localhost:3000/novels/${ele.id}`, editConfig)
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
+          showBig(data);
+        }) 
+    })
   }
-
-  document.getElementById("finisher").addEventListener("click", () => {
-    let configObj = {
-      completed: true,
-      rating: Number(ratingInput.value),
-      comment: commentInput.value
-    };
-    let editConfig = {
-      method: "PATCH",
-      header: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(configObj)
-    };
-
-    fetch(`http://localhost:3000/novels/${ele.id}`, editConfig)
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        showBig(data);
-      }) 
-  })
-    
 }
