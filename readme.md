@@ -85,7 +85,6 @@ Part 4: Setting up the page's initial state with DOMContentLoaded
 
   ```
  function buildInterior(ele) {
-  let coverImage = document.createElement("img");
   let bookInfo = document.createElement("div");
   let completeDiv = document.createElement("div");
   let ratingInput = document.createElement("input");
@@ -107,7 +106,6 @@ Part 4: Setting up the page's initial state with DOMContentLoaded
   editDiv.innerHTML = `<h4>When finished, fill this out</h4>`;
   bookImage.innerHTML = "";
   bookDetails.innerHTML = "";
-  coverImage.className = "big-book";
   coverImage.src = ele.coverImage;
   bookInfo.className = "book-info";
   if (ele.completed === true) {
@@ -177,4 +175,3 @@ Part 6: One little detail
   ```
 
   Part 7: Adding POST
-    
