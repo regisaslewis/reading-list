@@ -4,16 +4,25 @@ const bookImage = document.getElementById("book-image");
 const bookDetails = document.getElementById("book-details");
 const postButton = document.getElementById("post-button");
 const hiddenDiv = document.getElementById("new-book-div");
+const finishedButton = document.getElementById("finished");
+const unfinishedButton = document.getElementById("unfinished");
 
-document.addEventListener("DOMContentLoaded", loadDatabase)
+document.addEventListener("DOMContentLoaded", () => {
+  loadDatabase();
+})
 
 function showBig(ele) {
   fetch(`http://localhost:3000/novels/${ele.id}`)
     .then((resp) => resp.json())
-    .then((data) => buildInterior(data))
+    .then((data) => {
+      buildInterior(data);
+    })
 }
 
 function loadDatabase () {
+  fetch(`http://localhost:3000/novels/1`)
+    .then((resp) => resp.json())
+    .then((data) => buildInterior(data))
   fetch(`http://localhost:3000/novels`)
   .then((resp) => resp.json())
   .then((data) => {
@@ -35,9 +44,6 @@ function loadDatabase () {
         title.style.display = "none";
       })
       tile.addEventListener("click", () => showBig(e));
-      fetch(`http://localhost:3000/novels/1`)
-        .then((resp) => resp.json())
-        .then((data) => buildInterior(data))
     })
   })
 }
@@ -104,9 +110,7 @@ function buildInterior(ele) {
   
       fetch(`http://localhost:3000/novels/${ele.id}`, editConfig)
         .then((resp) => resp.json())
-        .then((data) => {
-          showBig(data);
-        }) 
+        .then((data) => showBig(data)) 
     })
   }
 }
@@ -114,32 +118,82 @@ function buildInterior(ele) {
 function addBook() {
   if (hiddenDiv.style.display === "" || hiddenDiv.style.display === "none") {
     hiddenDiv.style.display = "block";
+    postButton.textContent = "CLOSE";
+  } else {
+    hiddenDiv.style.display = "none";
+    postButton.textContent = "Add New Book";
   }
-  // let title = document.createElement("input");
-  // let author = document.createElement("input");
-  // let genre = document.createElement("input");
-  // let rating = document.createElement("input");
-  // let completeTrue = document.createElement("input");
-  // let completeFalse = document.createElement("input");
-  // let comment = document.createElement("textarea");
-  // title.type = "text";
-  // title.placeholder = "Title";
-  // author.type = "text";
-  // author.placeholder = "Author";
-  // genre.type = "text";
-  // genre.placeholder = "Genre";
-  // rating.type = "number";
-  // rating.placeholder = "Rating";
-  // comment.placeholder = "Assessment";
-  // completeTrue.type = "radio";
-  // completeTrue.value = "true";
-  // completeFalse.type = "radio";
-  // completeFalse.value = "false";
-  //   hiddenDiv.appendChild(title);
-  //   hiddenDiv.appendChild(author);
-  //   hiddenDiv.appendChild(genre);
-  //   hiddenDiv.appendChild(completeTrue);
-  //   hiddenDiv.appendChild(completeFalse);
+}
+postButton.addEventListener("click", addBook);
+
+function cleanList() {
+  bookList.innerHTML = "";
+  hiddenDiv.style.display = "none";
+  postButton.textContent = "Add New Book";
+  document.getElementById("new-title").value = "";
+  document.getElementById("new-author").value = "";
+  document.getElementById("new-genre").value = "";
+  document.getElementById("new-image").value = "";
+  document.getElementById("new-title").value = "";
+  if (document.getElementById("rating")) {
+    document.getElementById("rating").value = "";
+    document.getElementById("comment").value = "";
+  }
+  setTimeout(loadDatabase, "10");
 }
 
-postButton.addEventListener("click", addBook);
+function bookDone() {
+  let rating = document.createElement("input");
+  let comment = document.createElement("textarea");
+  let newPostBtn = document.createElement("button");
+  rating.type = "number";
+  rating.id = "rating"
+  rating.placeholder = "Rating";
+  comment.placeholder = "Assessment";
+  comment.style.width = "170px";
+  comment.id = "comment";
+  newPostBtn.textContent = "Post"
+  newPostBtn.id = "newPost"
+  hiddenDiv.appendChild(rating);
+  hiddenDiv.appendChild(comment);
+  hiddenDiv.appendChild(newPostBtn);
+  newPostBtn.addEventListener("click", () => {
+    postNew(true);
+    cleanList();
+  });
+}
+finishedButton.addEventListener("click", bookDone);
+
+function postNew(boolean) {
+  if (document.getElementById("new-title").value !== "") {
+    let bodyObj = {
+      title: document.getElementById("new-title").value,
+      author: document.getElementById("new-author").value,
+      genre: document.getElementById("new-genre").value,
+      coverImage: document.getElementById("new-image").value
+    };
+    if (boolean === true) {
+      bodyObj.completed = true;
+      bodyObj.rating = Number(document.getElementById("rating").value);
+      bodyObj.comment = document.getElementById("comment").value;
+    } else {
+        bodyObj.completed = false;
+    }
+    let postConfig = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(bodyObj)
+    }
+    fetch(`http://localhost:3000/novels`, postConfig)
+      .then((resp) => resp.json)
+      .then((data) => data)
+    }
+}
+unfinishedButton.addEventListener("click", () => {
+  postNew(false);
+  hiddenDiv.style.display = "none";
+  cleanList();
+});

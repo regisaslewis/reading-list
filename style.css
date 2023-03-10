@@ -62,6 +62,8 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -147,8 +149,9 @@ a:hover {
   margin-bottom: 5px;
 }
 
-#commenter {
-  width: 300px;
+textarea {
+  min-width: 50px;
+  max-width: 300px;
   height: 70px;
 }
 
@@ -168,6 +171,7 @@ button:hover {
 
 #post-button {
   width: 90px;
+  height: 40px;
   background-color: lightsalmon;
 }
 
