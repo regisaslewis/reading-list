@@ -6,6 +6,7 @@ const postButton = document.getElementById("post-button");
 const hiddenDiv = document.getElementById("new-book-div");
 const finishedButton = document.getElementById("finished");
 const unfinishedButton = document.getElementById("unfinished");
+const coverImage = document.getElementById("cover-image");
 
 document.addEventListener("DOMContentLoaded", () => {
   loadDatabase();
@@ -49,7 +50,6 @@ function loadDatabase () {
 }
 
 function buildInterior(ele) {
-  let coverImage = document.createElement("img");
   let bookInfo = document.createElement("div");
   let completeDiv = document.createElement("div");
   let ratingInput = document.createElement("input");
@@ -68,10 +68,9 @@ function buildInterior(ele) {
   <h4>My Assessment:<br><br>${ele.comment}`
   let editDiv = document.createElement("div");
   editDiv.id = "edit-box";
-  editDiv.innerHTML = `<h4>When finished, fill this out</h4>`;
+  editDiv.innerHTML = `<h4>When finished, fill this out:</h4>`;
   bookImage.innerHTML = "";
   bookDetails.innerHTML = "";
-  coverImage.className = "big-book";
   coverImage.src = ele.coverImage;
   bookInfo.className = "book-info";
   if (ele.completed === true) {
@@ -139,7 +138,7 @@ function cleanList() {
     document.getElementById("rating").value = "";
     document.getElementById("comment").value = "";
   }
-  setTimeout(loadDatabase, "100");
+  setTimeout(loadDatabase, "300");
 }
 
 function bookDone() {

@@ -95,6 +95,16 @@
       "rating": 7,
       "comment": "One of Murakami's best, still wrought with many of his weird judgments about women, but a fascinating double-tale of descent.",
       "id": 10
+    },
+    {
+      "title": "The Great Offshore Grounds",
+      "author": "Vanessa Veselka",
+      "genre": "Literature / Realism",
+      "coverImage": "https://m.media-amazon.com/images/I/91PN4muHbpL._AC_UF1000,1000_QL80_.jpg",
+      "completed": true,
+      "rating": 8,
+      "comment": "For a moment in the middle, the book seemed to meander and lose itself, but everything eventually found its footing. The complexity of the characters and the clashes of their personalities glows as their mettle is continuously challenged.",
+      "id": 11
     }
   ]
 }
