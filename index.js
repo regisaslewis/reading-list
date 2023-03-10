@@ -2,6 +2,8 @@ const bookList = document.getElementById("booklist");
 const singleBook = document.getElementById("single-book");
 const bookImage = document.getElementById("book-image");
 const bookDetails = document.getElementById("book-details");
+const postButton = document.getElementById("post-button");
+const hiddenDiv = document.getElementById("new-book-div");
 
 document.addEventListener("DOMContentLoaded", loadDatabase)
 
@@ -108,3 +110,36 @@ function buildInterior(ele) {
     })
   }
 }
+
+function addBook() {
+  if (hiddenDiv.style.display === "" || hiddenDiv.style.display === "none") {
+    hiddenDiv.style.display = "block";
+  }
+  // let title = document.createElement("input");
+  // let author = document.createElement("input");
+  // let genre = document.createElement("input");
+  // let rating = document.createElement("input");
+  // let completeTrue = document.createElement("input");
+  // let completeFalse = document.createElement("input");
+  // let comment = document.createElement("textarea");
+  // title.type = "text";
+  // title.placeholder = "Title";
+  // author.type = "text";
+  // author.placeholder = "Author";
+  // genre.type = "text";
+  // genre.placeholder = "Genre";
+  // rating.type = "number";
+  // rating.placeholder = "Rating";
+  // comment.placeholder = "Assessment";
+  // completeTrue.type = "radio";
+  // completeTrue.value = "true";
+  // completeFalse.type = "radio";
+  // completeFalse.value = "false";
+  //   hiddenDiv.appendChild(title);
+  //   hiddenDiv.appendChild(author);
+  //   hiddenDiv.appendChild(genre);
+  //   hiddenDiv.appendChild(completeTrue);
+  //   hiddenDiv.appendChild(completeFalse);
+}
+
+postButton.addEventListener("click", addBook);

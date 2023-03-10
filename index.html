@@ -17,7 +17,24 @@
         <h2>A collection of books I've read</h2>
         <h2>and those I'm currently reading.</h2>
       </div>
+      <button id="post-button">Add New Book</button>
     </section>
+    <div id="new-book-div">
+      <input id="new-title" type="text" placeholder="Title">
+      <input id="new-author" type="text" placeholder="Author">
+      <input id="new-genre" type="text" placeholder="Genre">
+      <fieldset>
+        <legend>Finished?</legend>
+        <div>
+          <input name="complete" type="radio" id="false" value="false" checked>
+          <label for="false">Not Yet</label>
+        </div>
+        <div>
+          <input name="complete" type="radio" id="true" value="true">
+          <label for="true">Yes</label>
+        </div>
+      </fieldset>
+    </div>
     <div id="single-book">
       <div id="book-image"></div>
       <div id="crease"></div>

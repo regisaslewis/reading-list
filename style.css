@@ -165,3 +165,21 @@ button:hover {
   color: var(--hf-bg);
   background-color: var(--hf-text);
 }
+
+#post-button {
+  width: 90px;
+  background-color: lightsalmon;
+}
+
+#new-book-div {
+  display: none;
+  position: absolute;
+  top: 90px;
+  right: 4%;
+  width: 200px;
+  text-align: center;
+  background-color: aquamarine;
+  border: 3px solid black;
+  padding: 10px;
+  z-index: 11;
+}
