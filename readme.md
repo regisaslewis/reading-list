@@ -175,3 +175,6 @@ Part 6: One little detail
         .then((resp) => resp.json())
         .then((data) => buildInterior(data))
   ```
+
+  Part 7: Adding POST
+    

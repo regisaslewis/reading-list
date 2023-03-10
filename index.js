@@ -139,7 +139,7 @@ function cleanList() {
     document.getElementById("rating").value = "";
     document.getElementById("comment").value = "";
   }
-  setTimeout(loadDatabase, "10");
+  setTimeout(loadDatabase, "100");
 }
 
 function bookDone() {
@@ -194,6 +194,5 @@ function postNew(boolean) {
 }
 unfinishedButton.addEventListener("click", () => {
   postNew(false);
-  hiddenDiv.style.display = "none";
   cleanList();
 });

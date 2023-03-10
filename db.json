@@ -75,6 +75,26 @@
       "id": 8,
       "rating": 10,
       "comment": "Best of the Best.  Created a genre for a reason, even after examples of the genre's elements already existed.  Style and expert prose throughout."
+    },
+    {
+      "title": "Severance",
+      "author": "Ling Ma",
+      "genre": "Literature / Apocalypse",
+      "coverImage": "https://static1.squarespace.com/static/57157d427da24f6b3fa395e4/t/5bacbf51a4222ff403af0840/1538047829692/OJ_severance_01.jpg",
+      "completed": true,
+      "rating": 9,
+      "comment": "Amazing look at how workplace dynamics can threaten to overshadow one's real place in the world.",
+      "id": 9
+    },
+    {
+      "title": "Hard-Boiled Wonderland and the End of the World",
+      "author": "Haruki Murakami",
+      "genre": "Surrealism",
+      "coverImage": "https://d3525k1ryd2155.cloudfront.net/f/460/743/9780679743460.RH.0.l.jpg",
+      "completed": true,
+      "rating": 7,
+      "comment": "One of Murakami's best, still wrought with many of his weird judgments about women, but a fascinating double-tale of descent.",
+      "id": 10
     }
   ]
 }
