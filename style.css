@@ -92,7 +92,8 @@ a:hover {
   left: -10px;
   font-weight: bold;
   margin: auto;
-  width: 100%;
+  min-width: min-content;
+  max-width: 150px;
   padding: 1px;
   background-color: rgba(246, 234, 219, 0.559);
   outline: 1px solid black;
@@ -114,22 +115,29 @@ a:hover {
 }
 
 #book-image, #book-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
   width: 50%;
   margin: 20px auto;
   margin: 20px auto auto 2%;
 }
 
 #book-details {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
+  margin-top: 40px;
+  font-size: 1.2em;
+  max-width: 600px;
+  padding-bottom: 15px;
+  outline: 1px solid black;
+  background-color: rgba(250, 235, 215, 0.432);
 }
 
 .big-book {
   min-height: 650px;
-  max-height: 90%;
-  max-width: 95%;
+  max-height: 60%;
+  min-width: 100px;
+  max-width: 430px;
   box-shadow: -7px 7px 8px black;
   border-radius: 3px;
 }
@@ -170,9 +178,12 @@ button:hover {
 }
 
 #post-button {
+  font-weight: bold;
   width: 90px;
   height: 40px;
-  background-color: lightsalmon;
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: rgb(245, 177, 151);
 }
 
 #new-book-div {

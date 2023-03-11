@@ -65,7 +65,7 @@ function buildInterior(ele) {
   finishButton.id = "finisher";
   finishButton.textContent = "Finished";
   completeDiv.innerHTML = `<h3>Rating:<br>${ele.rating} / 10</h3>
-  <h4>My Assessment:<br><br>${ele.comment}`
+  <h4>My Assessment:<br>${ele.comment}`
   let editDiv = document.createElement("div");
   editDiv.id = "edit-box";
   editDiv.innerHTML = `<h4>When finished, fill this out:</h4>`;
