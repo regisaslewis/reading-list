@@ -145,7 +145,7 @@ function cleanList() {
     document.getElementById("rating").value = "";
     document.getElementById("comment").value = "";
   }
-  setTimeout(loadDatabase(highestID + 1), "700");
+  (loadDatabase(highestID + 1), "1000");
 }
 
 function bookDone() {
@@ -165,7 +165,7 @@ function bookDone() {
   hiddenDiv.appendChild(newPostBtn);
   newPostBtn.addEventListener("click", () => {
     postNew(true);
-    setTimeout(cleanList, "700");
+    setTimeout(cleanList, "1000");
   });
 }
 finishedButton.addEventListener("click", bookDone);
