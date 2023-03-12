@@ -23,8 +23,8 @@ function showBig(ele) {
     })
 }
 
-function loadDatabase () {
-  fetch(`http://localhost:3000/novels/1`)
+function loadDatabase (num=1) {
+  fetch(`http://localhost:3000/novels/${num}`)
     .then((resp) => resp.json())
     .then((data) => buildInterior(data))
   fetch(`http://localhost:3000/novels`)
@@ -87,13 +87,12 @@ function buildInterior(ele) {
   bookImage.appendChild(coverImage);
   bookDetails.appendChild(bookInfo);
   if (ele.completed === "Yes") {
-    editDiv.innerHTML = "";
     completeDiv.style.display = "block";
     editDiv.style.display = "none";
   } else {
     editDiv.innerHTML = "";
     completeDiv.style.display = "none";
-    editDiv.style.display = "block";
+    editDiv.style.display = "flex";
     editDiv.appendChild(editTitle);
     editDiv.appendChild(ratingInput);
     editDiv.appendChild(commentInput);
@@ -133,6 +132,7 @@ function addBook() {
 postButton.addEventListener("click", addBook);
 
 function cleanList() {
+  let highestID = document.querySelectorAll(".booktile").length;
   bookList.innerHTML = "";
   hiddenDiv.style.display = "none";
   postButton.textContent = "Add New Book";
@@ -145,7 +145,7 @@ function cleanList() {
     document.getElementById("rating").value = "";
     document.getElementById("comment").value = "";
   }
-  setTimeout(loadDatabase, "300");
+  setTimeout(loadDatabase(highestID + 1), "700");
 }
 
 function bookDone() {
@@ -165,7 +165,7 @@ function bookDone() {
   hiddenDiv.appendChild(newPostBtn);
   newPostBtn.addEventListener("click", () => {
     postNew(true);
-    cleanList();
+    setTimeout(cleanList, "700");
   });
 }
 finishedButton.addEventListener("click", bookDone);
@@ -200,5 +200,5 @@ function postNew(boolean) {
 }
 unfinishedButton.addEventListener("click", () => {
   postNew(false);
-  cleanList();
+  setTimeout(cleanList, "300");
 });

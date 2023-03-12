@@ -116,7 +116,7 @@ a:hover {
 }
 
 #book-image, #book-details {
-  display: block;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: start;
@@ -150,7 +150,7 @@ a:hover {
   margin: auto;
 }
 
-#edit-box {
+#edit-div {
   display: flex;
   flex-direction: column;
 }

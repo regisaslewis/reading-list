@@ -63,8 +63,10 @@
       "author": "Laszlo  Krasznahorkai",
       "genre": "Literature / Absurdism",
       "coverImage": "http://readmeridian.org/wp-content/uploads/2020/07/baron.jpg",
-      "completed": false,
-      "id": 7
+      "completed": true,
+      "id": 7,
+      "rating": 10,
+      "comment": "A mad, wild ride."
     },
     {
       "title": "Neuromancer",
@@ -105,6 +107,16 @@
       "rating": 8,
       "comment": "For a moment in the middle, the book seemed to meander and lose itself, but everything eventually found its footing. The complexity of the characters and the clashes of their personalities glows as their mettle is continuously challenged.",
       "id": 11
+    },
+    {
+      "title": "No One is Talking About This",
+      "author": "Patricia Lockwood",
+      "genre": "Contemporary Fiction",
+      "coverImage": "https://media.npr.org/assets/img/2021/02/17/81lcocgxfxl_custom-33c090d703bca54ac05c964a80ab56c3bdcb051f-s1100-c50.jpg",
+      "completed": true,
+      "rating": 7,
+      "comment": "Heartfelt tragedy.",
+      "id": 12
     }
   ]
 }

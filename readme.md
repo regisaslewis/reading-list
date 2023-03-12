@@ -10,11 +10,11 @@ If the book has been read, a rating is given, as well as my brief assessment of 
 
 For the books that I have yet to finish, a couple input fields are provided for me to rate the book and provide my assesment.
 
-In the upper-right corner, I've provided space for adding a new book, either one that I've already finished reading, or one that I'm working on, with plans to finish soon.
+In the upper-right corner, there is a button for adding a new book, either one that I've already finished reading, or one that I'm working on, with plans to finish soon.
 
-BUGS/Issues: 
+Here it is in action:
 
-1) Using .innerHTML within the main body elements could lead to malicious or misleading code being inserted into the page's contents.  Figure out a quick way to add it as .textContent and still keep the page appearing as it currently does.
+![Alt text](vscode-local:/c%3A/Users/regis/OneDrive/Desktop/p1%20readme%20gif.gif)
 
 <!-- Part 1: The Plan
 
