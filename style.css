@@ -2,6 +2,7 @@
   --hf-text: rgb(51, 97, 134);
   --hf-bg: rgb(246, 234, 219);
   --hf-border: rgb(2, 13, 24);
+  --b-shad: -2px 2px 3px black;
 }
 
 body {
@@ -129,7 +130,9 @@ a:hover {
   font-size: 1.2em;
   max-width: 600px;
   padding-bottom: 15px;
-  outline: 1px solid black;
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: var(--b-shad);
   background-color: rgba(250, 235, 215, 0.432);
 }
 
@@ -172,7 +175,7 @@ button {
 }
 
 button:hover {
-  box-shadow: -2px 2px 3px black;
+  box-shadow: var(--b-shad);
   color: var(--hf-bg);
   background-color: var(--hf-text);
 }

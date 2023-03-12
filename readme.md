@@ -1,6 +1,22 @@
 Regis's Book List
 
-Part 1: The Plan
+The main goal of this site is to quickly display a list of books that I have either finished reading or that I'm currently working my way through.  This will help me keep organized a running tally of all I've read, neatly arranged and cleanly presented.
+
+A row of "tiles" at the bottom of the page shows a thumbnail of the each of book's cover image.  When a mouse hovers over the thumbnail, the title appears plainly.  When a tile is clicked, it opens a larger version of the cover image, as well as details about the selected book.
+
+Title, author, genre, and whether or not I've completed reading are listed within the details.
+
+If the book has been read, a rating is given, as well as my brief assessment of the book.
+
+For the books that I have yet to finish, a couple input fields are provided for me to rate the book and provide my assesment.
+
+In the upper-right corner, I've provided space for adding a new book, either one that I've already finished reading, or one that I'm working on, with plans to finish soon.
+
+BUGS/Issues: 
+
+1) Using .innerHTML within the main body elements could lead to malicious or misleading code being inserted into the page's contents.  Figure out a quick way to add it as .textContent and still keep the page appearing as it currently does.
+
+<!-- Part 1: The Plan
 
   I've always wanted to have a comprehensive list of all of the books I've read in my lifetime.  Not necessarily a public thing, just a document or database where I could look (with some degree of pride, hopefully) at a growing collection of books that I've read.
 
@@ -174,4 +190,4 @@ Part 6: One little detail
         .then((data) => buildInterior(data))
   ```
 
-  Part 7: Adding POST
+  Part 7: Adding POST -->
