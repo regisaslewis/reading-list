@@ -14,8 +14,7 @@ In the upper-right corner, there is a button for adding a new book, either one t
 
 Here it is in action:
 
-![Alt text](vscode-local:/c%3A/Users/regis/OneDrive/Desktop/p1%20readme%20gif.gif)
-
+![](https://github.com/regisaslewis/reading-list/blob/cb4eb3cecb2e4ad193a2bd4d4b97734696324ad9/p1%20readme%20gif.gif)
 <!-- Part 1: The Plan
 
   I've always wanted to have a comprehensive list of all of the books I've read in my lifetime.  Not necessarily a public thing, just a document or database where I could look (with some degree of pride, hopefully) at a growing collection of books that I've read.
