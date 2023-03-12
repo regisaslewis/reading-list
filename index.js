@@ -7,6 +7,9 @@ const hiddenDiv = document.getElementById("new-book-div");
 const finishedButton = document.getElementById("finished");
 const unfinishedButton = document.getElementById("unfinished");
 const coverImage = document.getElementById("cover-image");
+const bookInfo = document.getElementById("book-info");
+const completeDiv = document.getElementById("complete-div");
+const editDiv = document.getElementById("edit-div");
 
 document.addEventListener("DOMContentLoaded", () => {
   loadDatabase();
@@ -29,12 +32,14 @@ function loadDatabase () {
   .then((data) => {
     data.forEach((e) => {
       let tile = document.createElement("div");
+      let tileImage = document.createElement("img");
       let title = document.createElement("div");
       tile.className = "booktile";
-      tile.innerHTML = `<img src=${e.coverImage}>`
+      tileImage.src = e.coverImage;
       title.className = "p-div",
       title.textContent = e.title;
       bookList.appendChild(tile);
+      tile.appendChild(tileImage);
       tile.appendChild(title);
       tile.addEventListener("mouseenter", () => {
         tile.style.cursor = "pointer";
@@ -52,8 +57,7 @@ function loadDatabase () {
 }
 
 function buildInterior(ele) {
-  let bookInfo = document.createElement("div");
-  let completeDiv = document.createElement("div");
+  let editTitle = document.createElement("h4");
   let ratingInput = document.createElement("input");
   let commentInput = document.createElement("textarea");
   let finishButton = document.createElement("button");
@@ -66,30 +70,31 @@ function buildInterior(ele) {
   commentInput.placeholder = "Assessment";
   finishButton.id = "finisher";
   finishButton.textContent = "Finished";
-  completeDiv.innerHTML = `<h3>Rating:<br>${ele.rating} / 10</h3>
-  <h4>My Assessment:<br>${ele.comment}`
-  let editDiv = document.createElement("div");
-  editDiv.id = "edit-box";
-  editDiv.innerHTML = `<h4>When finished, fill this out:</h4>`;
+  editTitle.textContent = "When finished, fill this out:";
   bookImage.innerHTML = "";
-  bookDetails.innerHTML = "";
   coverImage.src = ele.coverImage;
-  bookInfo.className = "book-info";
   if (ele.completed === true) {
     ele.completed = "Yes";
   } else {
     ele.completed = "Working on it";
   }
-  bookInfo.innerHTML = `<h2>Title:<br>${ele.title}</h2>
-  <h2>Author:<br>${ele.author}</h2>
-  <h3>Genre:<br>${ele.genre}</h3>
-  <h4>Have I completed it yet:<br>${ele.completed}</h4>`
+  document.getElementById("big-title").textContent = ele.title;
+  document.getElementById("big-author").textContent = ele.author;
+  document.getElementById("big-genre").textContent = ele.genre;
+  document.getElementById("big-completed").textContent = ele.completed;
+  document.getElementById("big-rating").textContent = `${ele.rating} / 10`
+  document.getElementById("big-assess").textContent = ele.comment;
   bookImage.appendChild(coverImage);
   bookDetails.appendChild(bookInfo);
   if (ele.completed === "Yes") {
-    bookInfo.appendChild(completeDiv);
+    editDiv.innerHTML = "";
+    completeDiv.style.display = "block";
+    editDiv.style.display = "none";
   } else {
-    bookInfo.appendChild(editDiv);
+    editDiv.innerHTML = "";
+    completeDiv.style.display = "none";
+    editDiv.style.display = "block";
+    editDiv.appendChild(editTitle);
     editDiv.appendChild(ratingInput);
     editDiv.appendChild(commentInput);
     editDiv.appendChild(finishButton);

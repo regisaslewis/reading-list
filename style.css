@@ -116,7 +116,7 @@ a:hover {
 }
 
 #book-image, #book-details {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   text-align: start;
