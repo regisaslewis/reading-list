@@ -165,7 +165,7 @@ function bookDone() {
   hiddenDiv.appendChild(newPostBtn);
   newPostBtn.addEventListener("click", () => {
     postNew(true);
-    setTimeout(cleanList, "1000");
+    setTimeout(cleanList, "800");
   });
 }
 finishedButton.addEventListener("click", bookDone);
@@ -200,5 +200,5 @@ function postNew(boolean) {
 }
 unfinishedButton.addEventListener("click", () => {
   postNew(false);
-  setTimeout(cleanList, "300");
+  setTimeout(cleanList, "800");
 });

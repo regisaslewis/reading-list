@@ -18,3 +18,7 @@ Here it is in action:
 
 And here is a link to a video describing the features in action: 
 [Video](https://www.youtube.com/watch?v=aB-vBSxJr84)
+
+Issues:
+1) I'm currently using setTimeout to do the loading of some elements synchronously.  It works, but it feels clunk and amateur.  I'm trying to understand how to use Promise, but I'm not quite getting it.
+  - I can get the syntax down and everything, but it just doesn't wait long enough to ensure the new item has been added before loading the database at the new final location.  I'll have to work on it more later.
