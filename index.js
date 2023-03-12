@@ -37,10 +37,12 @@ function loadDatabase () {
       bookList.appendChild(tile);
       tile.appendChild(title);
       tile.addEventListener("mouseenter", () => {
+        tile.style.cursor = "pointer";
         tile.style.transform = "scale(1.1)";
         title.style.display = "block";
       })
       tile.addEventListener("mouseleave", () => {
+        tile.style.cursor = "default";
         tile.style.transform = "scale(1)";
         title.style.display = "none";
       })
