@@ -16,5 +16,5 @@ Here it is in action:
 
 ![](https://github.com/regisaslewis/reading-list/blob/cb4eb3cecb2e4ad193a2bd4d4b97734696324ad9/p1%20readme%20gif.gif)
 
-And below is a link to a video describing the features in action: 
+And here is a link to a video describing the features in action: 
 [Video](https://www.youtube.com/watch?v=aB-vBSxJr84)
