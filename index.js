@@ -132,20 +132,24 @@ function addBook() {
 postButton.addEventListener("click", addBook);
 
 function cleanList() {
-  let highestID = document.querySelectorAll(".booktile").length;
-  bookList.innerHTML = "";
-  hiddenDiv.style.display = "none";
-  postButton.textContent = "Add New Book";
-  document.getElementById("new-title").value = "";
-  document.getElementById("new-author").value = "";
-  document.getElementById("new-genre").value = "";
-  document.getElementById("new-image").value = "";
-  document.getElementById("new-title").value = "";
-  if (document.getElementById("rating")) {
-    document.getElementById("rating").value = "";
-    document.getElementById("comment").value = "";
-  }
-  (loadDatabase(highestID + 1), "1000");
+  fetch(`http://localhost:3000/novels`)
+    .then((resp) => resp.json())
+    .then(() => {
+      let highestID = document.querySelectorAll(".booktile").length;
+      bookList.innerHTML = "";
+      hiddenDiv.style.display = "none";
+      postButton.textContent = "Add New Book";
+      document.getElementById("new-title").value = "";
+      document.getElementById("new-author").value = "";
+      document.getElementById("new-genre").value = "";
+      document.getElementById("new-image").value = "";
+      document.getElementById("new-title").value = "";
+      if (document.getElementById("rating")) {
+        document.getElementById("rating").value = "";
+        document.getElementById("comment").value = "";
+      }
+      loadDatabase(highestID + 1);
+  })
 }
 
 function bookDone() {
@@ -165,7 +169,7 @@ function bookDone() {
   hiddenDiv.appendChild(newPostBtn);
   newPostBtn.addEventListener("click", () => {
     postNew(true);
-    setTimeout(cleanList, "800");
+    cleanList();
   });
 }
 finishedButton.addEventListener("click", bookDone);
@@ -200,5 +204,5 @@ function postNew(boolean) {
 }
 unfinishedButton.addEventListener("click", () => {
   postNew(false);
-  setTimeout(cleanList, "800");
+  cleanList();
 });
