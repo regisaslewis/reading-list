@@ -201,3 +201,7 @@ button:hover {
   padding: 10px;
   z-index: 11;
 }
+
+#comment {
+  width: 170px;
+}

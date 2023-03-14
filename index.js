@@ -1,11 +1,7 @@
 const bookList = document.getElementById("booklist");
-const singleBook = document.getElementById("single-book");
 const bookImage = document.getElementById("book-image");
-const bookDetails = document.getElementById("book-details");
 const postButton = document.getElementById("post-button");
 const hiddenDiv = document.getElementById("new-book-div");
-const finishedButton = document.getElementById("finished");
-const unfinishedButton = document.getElementById("unfinished");
 const coverImage = document.getElementById("cover-image");
 const bookInfo = document.getElementById("book-info");
 const completeDiv = document.getElementById("complete-div");
@@ -24,6 +20,7 @@ function showBig(ele) {
 }
 
 function loadDatabase (num=1) {
+  bookList.innerHTML = "";
   fetch(`http://localhost:3000/novels/${num}`)
     .then((resp) => resp.json())
     .then((data) => buildInterior(data))
@@ -85,7 +82,7 @@ function buildInterior(ele) {
   document.getElementById("big-rating").textContent = `${ele.rating} / 10`
   document.getElementById("big-assess").textContent = ele.comment;
   bookImage.appendChild(coverImage);
-  bookDetails.appendChild(bookInfo);
+  document.getElementById("book-details").appendChild(bookInfo);
   if (ele.completed === "Yes") {
     completeDiv.style.display = "block";
     editDiv.style.display = "none";
@@ -136,7 +133,6 @@ function cleanList() {
     .then((resp) => resp.json())
     .then(() => {
       let highestID = document.querySelectorAll(".booktile").length;
-      bookList.innerHTML = "";
       hiddenDiv.style.display = "none";
       postButton.textContent = "Add New Book";
       document.getElementById("new-title").value = "";
@@ -160,7 +156,6 @@ function bookDone() {
   rating.id = "rating"
   rating.placeholder = "Rating";
   comment.placeholder = "Assessment";
-  comment.style.width = "170px";
   comment.id = "comment";
   newPostBtn.textContent = "Post"
   newPostBtn.id = "newPost"
@@ -172,7 +167,7 @@ function bookDone() {
     cleanList();
   });
 }
-finishedButton.addEventListener("click", bookDone);
+document.getElementById("finished").addEventListener("click", bookDone);
 
 function postNew(boolean) {
   if (document.getElementById("new-title").value !== "") {
@@ -202,7 +197,7 @@ function postNew(boolean) {
       .then((data) => data)
     }
 }
-unfinishedButton.addEventListener("click", () => {
+document.getElementById("unfinished").addEventListener("click", () => {
   postNew(false);
   cleanList();
 });
