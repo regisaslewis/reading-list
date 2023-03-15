@@ -27,14 +27,14 @@ function loadDatabase (num=1) {
   fetch(`http://localhost:3000/novels`)
   .then((resp) => resp.json())
   .then((data) => {
-    data.forEach((e) => {
+    data.forEach((entry) => {
       let tile = document.createElement("div");
       let tileImage = document.createElement("img");
       let title = document.createElement("div");
       tile.className = "booktile";
-      tileImage.src = e.coverImage;
+      tileImage.src = entry.coverImage;
       title.className = "p-div",
-      title.textContent = e.title;
+      title.textContent = entry.title;
       bookList.appendChild(tile);
       tile.appendChild(tileImage);
       tile.appendChild(title);
@@ -48,7 +48,7 @@ function loadDatabase (num=1) {
         tile.style.transform = "scale(1)";
         title.style.display = "none";
       })
-      tile.addEventListener("click", () => showBig(e));
+      tile.addEventListener("click", () => showBig(entry));
     })
   })
 }
