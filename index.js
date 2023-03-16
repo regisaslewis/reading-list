@@ -58,6 +58,10 @@ function buildInterior(ele) {
   let ratingInput = document.createElement("input");
   let commentInput = document.createElement("textarea");
   let finishButton = document.createElement("button");
+  let upvoteBtn = document.createElement("button");
+  let voteCount = document.createElement("p");
+  upvoteBtn.textContent = "Upvote";
+  voteCount.textContent = "0";
   ratingInput.id = "rater";
   ratingInput.type = "number";
   ratingInput.placeholder = "Rating";
@@ -112,7 +116,7 @@ function buildInterior(ele) {
   
       fetch(`http://localhost:3000/novels/${ele.id}`, editConfig)
         .then((resp) => resp.json())
-        .then((data) => showBig(data)) 
+        .then((data) => showBig(data))
     })
   }
 }
