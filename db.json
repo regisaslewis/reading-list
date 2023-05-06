@@ -95,6 +95,22 @@
       "rating": 8,
       "comment": "For a moment in the middle, the book seemed to meander and lose itself, but everything eventually found its footing. The complexity of the characters and the clashes of their personalities glows as their mettle is continuously challenged.",
       "id": 10
+    },
+    {
+      "title": "Wolf in White Van",
+      "author": "John Darnielle",
+      "genre": "Literary Fiction",
+      "coverImage": "https://res.cloudinary.com/scribe-publications/image/upload/w_800,/v1461227046/newcovers/9781925106237.jpg",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "title": "The Immortalists",
+      "author": "Chloe Benjamin",
+      "genre": "Fiction",
+      "coverImage": "https://m.media-amazon.com/images/I/91X4ZCruKNL._AC_UF1000,1000_QL80_.jpg",
+      "completed": false,
+      "id": 12
     }
   ]
 }
